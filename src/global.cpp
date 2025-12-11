@@ -88,7 +88,7 @@ void SetThreadPoolSize(unsigned int count) { impl::Init::Instance().setThreadPoo
 void SetSctpSettings(SctpSettings s) { impl::Init::Instance().setSctpSettings(std::move(s)); }
 #endif
 
-void Preload() { impl::Init::Instance().preload(); }
+bool Preload() { return impl::Init::Instance().preload(); }
 std::shared_future<void> Cleanup() { return impl::Init::Instance().cleanup(); }
 
 std::ostream &operator<<(std::ostream &out, LogLevel level) {
